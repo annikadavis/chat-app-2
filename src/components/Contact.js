@@ -2,41 +2,49 @@ import React from 'react';
 import './Components.css';
 
 
-function Contact(){
-    return(
+function Contact(props) { 
+    return (
         <div className="Contact">
-            <Avatar />
-            <Name />
-            <Status />
+            <Avatar avatar={props.avatar} />
+            <Name name={props.name} />
+            <Status online={props.online}/>
         </div>
     );
 }
 
-function Avatar(){
-    return(
-            <img class="avatar" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/98/985f9b4dc9177742a06472a24a34712f7673793b_full.jpg" />
-        );
-    }
+function Avatar(props) {
+    return (
+        <div className="avatar">
+            {props.avatar}
+        </div>
+    );
+}
 
-function Name(){
-    return(
+function Name(props) {
+    return (
         <div className="name">
-            Garfield Lasagna
+            {props.name}
         </div>
     );
 }
 
-function Status(){
-    return(
-        <div className="status">
-            <div className="status-text">
-            Online
+function Status(props) { console.log(props)
+    return (
+        props.online ?
+            <div className="status">
+                <div className="status-text">
+                    Online
             </div>
-            <div className="status-online">
-
+                <div className="status-online">
+                </div>
+            </div> :
+            <div className="status">
+                <div className="status-text">
+                    Offline
             </div>
-
-        </div>
+                <div className="status-offline">
+                </div>
+            </div>
     );
 }
 
