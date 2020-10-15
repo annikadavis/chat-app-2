@@ -15,36 +15,26 @@ function Contact(props) {
 function Avatar(props) {
     return (
         <div className="avatar">
-            {props.avatar}
+        <img className="avatar" src={props.avatar} alt="user"/>
         </div>
     );
 }
 
 function Name(props) {
     return (
-        <div className="name">
-            {props.name}
-        </div>
+        <div className="Contact">
+        <div className="contactText">
+        <p className="name">{props.name}</p>
+        </div></div>
     );
 }
 
-function Status(props) { console.log(props)
+function Status(props) { 
     return (
-        props.online ?
-            <div className="status">
-                <div className="status-text">
-                    Online
-            </div>
-                <div className="status-online">
-                </div>
-            </div> :
-            <div className="status">
-                <div className="status-text">
-                    Offline
-            </div>
-                <div className="status-offline">
-                </div>
-            </div>
+        <div className="status">
+        <div className={props.online? "status-online" : "status-offline"}></div>
+        <p className="status-text">{props.online? "online" : "offline"}</p>
+    </div>   
     );
 }
 
